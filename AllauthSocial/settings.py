@@ -43,14 +43,15 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
-    # 'allauth.socialaccount.providers.twitter',
-    # 'allauth.socialaccount.providers.discord',
-    # 'allauth.socialaccount.providers.github',
+    # 'allauth.socialaccount.providers.twitter',{won't allow localhost,have to do it  in production}
+    'allauth.socialaccount.providers.discord',
+    'allauth.socialaccount.providers.github',
 ]
 SITE_ID = 1
 
-# 495349235982487
-# 1ec07128f0cdf42aa2bbad1996f97b88
+
+
+
 
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
@@ -83,6 +84,22 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
         'EXCHANGE_TOKEN': True,
 
+    },
+       'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    },
+        'Discord': {
+         'SCOPE': [
+            [
+            'identify',
+            'email',
+            'guilds']
+
+        ],
     }
 }
 
